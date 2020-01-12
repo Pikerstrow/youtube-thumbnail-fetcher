@@ -54,7 +54,8 @@ class ThumbnailFilesFetcher
             }
             //Make zip archive
             $zip = new ZipArchive();
-            $archive_name = 'thumbnails_' . time() . '.zip';
+            $valid_to = time() + 86400;
+            $archive_name = 'thumbnails_' . $valid_to . '.zip';
 
             $path = storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'zip' . DIRECTORY_SEPARATOR . $archive_name);
             touch($path);
@@ -65,7 +66,16 @@ class ThumbnailFilesFetcher
                     $zip->addFile(storage_path('app' . DIRECTORY_SEPARATOR . $value), $name_in_zip_file);
                 }
                 $zip->close();
-                return Storage::url('zip/' . $archive_name);
+                Storage::delete($files);
+
+                //For storing data about zip archive in DB (for CRON jobs)
+                $zip_archive_info = [
+                    'file_name' => $archive_name,
+                    'path' => $path,
+                    'url' => route('archive', ['archive' => $archive_name])
+                ];
+
+                return $zip_archive_info;
             } else {
                 throw new \Exception('Creating archive failed');
             }

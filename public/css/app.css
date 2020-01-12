@@ -11374,6 +11374,15 @@ h1 {
   letter-spacing: -0.8px;
 }
 
+h2 {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  letter-spacing: -0.8px;
+}
+
 input {
   width: 100%;
   height: 40px;
@@ -11384,6 +11393,31 @@ input {
 
 input:focus {
   outline: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #c5c5c5;
+  font-style: italic;
+}
+
+input::-moz-placeholder {
+  color: #c5c5c5;
+  font-style: italic;
+}
+
+input:-ms-input-placeholder {
+  color: #c5c5c5;
+  font-style: italic;
+}
+
+input::-ms-input-placeholder {
+  color: #c5c5c5;
+  font-style: italic;
+}
+
+input::placeholder {
+  color: #c5c5c5;
+  font-style: italic;
 }
 
 .app-container {
@@ -11454,6 +11488,38 @@ input:focus {
   -webkit-box-align: center;
           align-items: center;
   padding: 30px 30px;
+  width: 100%;
+}
+
+.app-container .app-content-section .result-container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+.app-container .app-content-section .result-container .result-img-container {
+  width: 100%;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+.app-container .app-content-section .result-container .result-img {
+  max-widt: 640;
+  margin: 10px auto;
+  display: block;
+}
+
+.app-container .app-content-section .result-container .result-resolution {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 0;
 }
 
 .app-container .app-content-section p {
@@ -11461,6 +11527,23 @@ input:focus {
   text-align: center;
   width: 70%;
   margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.app-container .app-content-section .resources-container {
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+.app-container .app-content-section div.result-description > p {
+  font-size: 1.1rem;
+  text-align: left;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
 .app-container .app-content-section .note_title {
@@ -11499,6 +11582,24 @@ input:focus {
           flex-direction: column;
 }
 
+.app-container .app-content-section .input-group-section form .err-container {
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.app-container .app-content-section .input-group-section form .err-container .error-txt {
+  margin-top: 5px;
+  color: #ff0000;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
 .app-container .app-content-section .input-group-section form .submit-btn {
   display: -webkit-box;
   display: flex;
@@ -11515,7 +11616,7 @@ input:focus {
   font-size: 1.3rem;
   font-family: "Oswald", sans-serif;
   align-self: center;
-  margin-top: 30px;
+  margin-top: 10px;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
   outline: none;

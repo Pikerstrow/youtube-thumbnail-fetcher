@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
+Route::get('/', function(){
     return view('index');
 });
+Route::get('/zip-archives/archive/{archive}', 'ZipArchivesController@index')->where('archive', '[A-Za-z0-9_\.]+')->name('archive');

@@ -49550,8 +49550,9 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app',
   data: {
-    image_links: [],
-    errors: {},
+    thumbnails_data: {},
+    max_resolution_thumbnail: {},
+    error: null,
     youtube_url: null
   },
   computed: {
@@ -49561,6 +49562,8 @@ var app = new Vue({
   },
   methods: {
     sendUrl: function sendUrl() {
+      var _this = this;
+
       if (!this.youtube_url) {
         return;
       }
@@ -49569,10 +49572,35 @@ var app = new Vue({
       axios.post(url, {
         youtube_url: this.youtube_url
       }).then(function (response) {
-        console.log(response.data);
+        if (response.data) {
+          _this.thumbnails_data = response.data;
+
+          _this.defineMaxResolutionImg(response.data);
+        }
       })["catch"](function (err) {
-        console.log('err', err);
+        if (err && err.response && err.response.data && err.response.data.errors) {
+          _this.error = err.response.data.errors['youtube_url'][0];
+        } else if (err && err.response && err.response.data && err.response.data.message) {
+          _this.error = err.response.data.message;
+        } else {
+          console.log(err);
+          _this.error = 'Something went wrong...';
+        }
       });
+    },
+    defineMaxResolutionImg: function defineMaxResolutionImg(data) {
+      var thumbnails = data.thumbnails;
+      var maxResolutionWidth = 0;
+      var maxResolutionImg;
+
+      for (var key in thumbnails) {
+        if (thumbnails[key].width > maxResolutionWidth) {
+          maxResolutionWidth = thumbnails[key].width;
+          maxResolutionImg = thumbnails[key];
+        }
+      }
+
+      this.max_resolution_thumbnail = maxResolutionImg;
     }
   }
 });

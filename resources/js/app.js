@@ -30,8 +30,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
     data: {
-        image_links: [],
-        errors: {},
+        thumbnails_data: {},
+        max_resolution_thumbnail: {},
+        error: null,
         youtube_url: null
     },
     computed: {
@@ -47,11 +48,34 @@ const app = new Vue({
             let url = this.baseUrl + '/api/fetch-thumbnail';
             axios.post(url, {youtube_url: this.youtube_url})
                 .then(response => {
-                    console.log(response.data)
+                    if(response.data){
+                        this.thumbnails_data = response.data;
+                        this.defineMaxResolutionImg(response.data);
+                    }
                 })
                 .catch(err => {
-                    console.log('err', err)
+                    if(err && err.response && err.response.data && err.response.data.errors){
+                        this.error = err.response.data.errors['youtube_url'][0];
+                    } else if (err && err.response && err.response.data && err.response.data.message) {
+                        this.error = err.response.data.message;
+                    } else {
+                        console.log(err)
+                        this.error = 'Something went wrong...';
+                    }
                 });
+        },
+        defineMaxResolutionImg(data){
+            let thumbnails = data.thumbnails;
+
+            let maxResolutionWidth = 0;
+            let maxResolutionImg;
+            for (let key in thumbnails) {
+                if(thumbnails[key].width > maxResolutionWidth){
+                    maxResolutionWidth = thumbnails[key].width;
+                    maxResolutionImg = thumbnails[key];
+                }
+            }
+            this.max_resolution_thumbnail = maxResolutionImg;
         }
     }
 });
