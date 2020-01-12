@@ -11356,6 +11356,10 @@ a.text-dark:focus {
   }
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: #f9f9f9;
@@ -11363,6 +11367,7 @@ body {
   padding: 0;
   font-size: 16px;
   color: #383838;
+  height: 100%;
 }
 
 h1 {
@@ -11381,6 +11386,16 @@ h2 {
   text-align: center;
   width: 100%;
   letter-spacing: -0.8px;
+}
+
+h3 {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  letter-spacing: -0.8px;
+  margin-bottom: 15px;
 }
 
 input {
@@ -11418,6 +11433,19 @@ input::-ms-input-placeholder {
 input::placeholder {
   color: #c5c5c5;
   font-style: italic;
+}
+
+footer.app-footer {
+  padding: 10px 30px;
+  background-color: #1d2124;
+  color: #ffffff;
+  display: -webkit-box;
+  display: flex;
+  align-self: stretch;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
 }
 
 .app-container {
@@ -11467,10 +11495,15 @@ input::placeholder {
   margin-right: 7px;
 }
 
-.app-container .app-header .app-nav .nav-item-container .logo-txt {
+.app-container .app-header .app-nav .nav-item-container .logo-txt,
+.app-container .app-header .app-nav .nav-item-container .logo-txt-footer {
   font-family: "Oswald", sans-serif;
   font-size: 1.3rem;
   letter-spacing: -0.8px;
+}
+
+.app-container .app-header .app-nav .nav-item-container .logo-txt-footer {
+  color: #ffffff;
 }
 
 .app-container .app-header .app-nav .nav-item-container .a-img {
@@ -11487,18 +11520,22 @@ input::placeholder {
           justify-content: center;
   -webkit-box-align: center;
           align-items: center;
-  padding: 30px 30px;
-  width: 100%;
+  padding: 10px 30px 10px 30px;
+  width: 70%;
 }
 
 .app-container .app-content-section .result-container {
   display: -webkit-box;
   display: flex;
+  width: 100%;
+  align-self: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
   -webkit-box-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
 }
 
 .app-container .app-content-section .result-container .result-img-container {
@@ -11508,7 +11545,7 @@ input::placeholder {
 }
 
 .app-container .app-content-section .result-container .result-img {
-  max-widt: 640;
+  max-width: 640px;
   margin: 10px auto;
   display: block;
 }
@@ -11525,25 +11562,100 @@ input::placeholder {
 .app-container .app-content-section p {
   font-size: 1.2rem;
   text-align: center;
-  width: 70%;
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 0;
 }
 
-.app-container .app-content-section .resources-container {
+.app-container .app-content-section .result-description {
+  min-width: 800px;
+  background-color: #ffffff;
+  padding: 30px;
   display: -webkit-box;
   display: flex;
   width: 100%;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
 }
 
-.app-container .app-content-section div.result-description > p {
+.app-container .app-content-section .result-description p {
+  text-align: center;
   font-size: 1.1rem;
   text-align: left;
   width: 100%;
   margin-top: 10px;
-  margin-bottom: 0;
+  margin-bottom: 10px;
+}
+
+.app-container .app-content-section .result-description .links-table {
+  border: 1px solid grey;
+  margin-bottom: 30px;
+}
+
+.app-container .app-content-section .result-description .links-table thead {
+  font-weight: bold;
+}
+
+.app-container .app-content-section .result-description .links-table td {
+  min-width: 200px;
+  border: 1px solid grey;
+  padding: 5px 15px;
+}
+
+.app-container .app-content-section .result-description .zip-link-container {
+  width: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+.app-container .app-content-section .result-description .zip-url,
+.app-container .app-content-section .result-description .skip-btn {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  width: 200px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ff0000;
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-family: "Oswald", sans-serif;
+  align-self: center;
+  margin-top: 10px;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.app-container .app-content-section .result-description .zip-url:hover,
+.app-container .app-content-section .result-description .skip-btn:hover {
+  background-color: #A80000;
+}
+
+.app-container .app-content-section .result-description .zip-url:focus,
+.app-container .app-content-section .result-description .zip-url:active,
+.app-container .app-content-section .result-description .skip-btn:focus,
+.app-container .app-content-section .result-description .skip-btn:active {
+  outline: 0 !important;
+}
+
+.app-container .app-content-section .result-description .zip-url {
+  background-color: #1e76ee;
+}
+
+.app-container .app-content-section .result-description .zip-url:hover {
+  background-color: #203fa8;
 }
 
 .app-container .app-content-section .note_title {

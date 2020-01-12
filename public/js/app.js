@@ -49553,7 +49553,8 @@ var app = new Vue({
     thumbnails_data: {},
     max_resolution_thumbnail: {},
     error: null,
-    youtube_url: null
+    youtube_url: null,
+    is_data_loading: false
   },
   computed: {
     baseUrl: function baseUrl() {
@@ -49568,6 +49569,7 @@ var app = new Vue({
         return;
       }
 
+      this.is_data_loading = true;
       var url = this.baseUrl + '/api/fetch-thumbnail';
       axios.post(url, {
         youtube_url: this.youtube_url
@@ -49586,7 +49588,12 @@ var app = new Vue({
           console.log(err);
           _this.error = 'Something went wrong...';
         }
+      })["finally"](function () {
+        _this.is_data_loading = false;
       });
+    },
+    clearResults: function clearResults() {
+      this.thumbnails_data = {}, this.max_resolution_thumbnail = {}, this.error = null, this.youtube_url = null;
     },
     defineMaxResolutionImg: function defineMaxResolutionImg(data) {
       var thumbnails = data.thumbnails;

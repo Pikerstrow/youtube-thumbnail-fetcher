@@ -33,7 +33,8 @@ const app = new Vue({
         thumbnails_data: {},
         max_resolution_thumbnail: {},
         error: null,
-        youtube_url: null
+        youtube_url: null,
+        is_data_loading: false
     },
     computed: {
         baseUrl(){
@@ -45,6 +46,7 @@ const app = new Vue({
             if(!this.youtube_url){
                 return;
             }
+            this.is_data_loading = true;
             let url = this.baseUrl + '/api/fetch-thumbnail';
             axios.post(url, {youtube_url: this.youtube_url})
                 .then(response => {
@@ -62,7 +64,16 @@ const app = new Vue({
                         console.log(err)
                         this.error = 'Something went wrong...';
                     }
+                })
+                .finally(() => {
+                    this.is_data_loading = false;
                 });
+        },
+        clearResults(){
+            this.thumbnails_data = {},
+            this.max_resolution_thumbnail = {},
+            this.error = null,
+            this.youtube_url = null
         },
         defineMaxResolutionImg(data){
             let thumbnails = data.thumbnails;

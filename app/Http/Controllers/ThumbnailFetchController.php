@@ -63,7 +63,7 @@ class ThumbnailFetchController extends Controller
 
                 $response = [
                     'thumbnails' => $thumbnails,
-                    'zip_archive_ur' => $zip_file_info->url
+                    'zip_archive_url' => $zip_file_info->url
                 ];
                 return response()->json($response);
             }
