@@ -49607,6 +49607,7 @@ var app = new Vue({
         }
       }
 
+      console.log(data);
       this.max_resolution_thumbnail = maxResolutionImg;
     }
   }

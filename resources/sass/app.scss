@@ -5,6 +5,8 @@
 // Variables
 @import 'variables';
 
+
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
@@ -129,7 +131,7 @@ footer.app-footer {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 10px 30px 10px 30px;
+        padding: 30px 30px 10px 30px;
         width: 70%;
 
         .result-container {
@@ -188,7 +190,9 @@ footer.app-footer {
 
             .links-table {
                 border: 1px solid grey;
-                margin-bottom: 30px;
+                width: 100%;
+                margin: 0 auto;
+
 
                 thead {
                     font-weight: bold;
@@ -262,7 +266,7 @@ footer.app-footer {
             flex-direction: row;
             justify-content: space-between;
             align-items: flex-start;
-            padding: 20px 30px;
+            padding: 30px 30px;
 
             form {
                 width: 100%;
@@ -328,3 +332,6 @@ footer.app-footer {
 
     }
 }
+
+// Mobiles
+@import 'mobiles';

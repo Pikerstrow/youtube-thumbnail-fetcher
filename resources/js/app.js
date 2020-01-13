@@ -86,6 +86,7 @@ const app = new Vue({
                     maxResolutionImg = thumbnails[key];
                 }
             }
+            console.log(data)
             this.max_resolution_thumbnail = maxResolutionImg;
         }
     }

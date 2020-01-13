@@ -20,10 +20,10 @@
             <span class="logo-txt">Youtube Thumbnail Picker</span>
         </div>
         <div class="nav-item-container">
-            <a href="#" class="a-lng" title="english">
+            <a href="{{ url('/en') }}" class="a-lng" title="english">
                 <img src="{{ url('images/united_kingdom.png') }}" class="a-img" alt="english">
             </a>
-            <a href="#" class="a-lng" title="русский">
+            <a href="{{ url('/ru') }}" class="a-lng" title="русский">
                 <img src="{{ url('images/russian.png') }}" class="a-img" alt="русский">
             </a>
         </div>
@@ -35,7 +35,7 @@
     <section class="app-content-section">
         <h1>{{ __('views.h1') }}</h1>
         <p>{{ __('views.description') }}</p>
-        <div>
+        <div class="notes-div">
             <span class="note_title">{{ __('views.note') }}</span>
             <span class="note_txt">{{ __('views.note_txt') }}</span>
         </div>
@@ -74,22 +74,24 @@
                     <span class="note_title">{{ __('views.note') }}</span><span class="note_txt">{{ __('views.links_note') }}</span>
                 </p>
                 <h3>{{ __('views.h3_links') }}</h3>
-                <table class="links-table">
-                    <thead>
-                    <tr>
-                        <td>{{ __('views.resolution') }}</td>
-                        <td>{{ __('views.link') }}</td>
-                    </tr>
-                    </thead>
-                    <tr v-for="(thumbnail, index) in thumbnails_data.thumbnails">
-                        <td>
-                            @{{ thumbnail.width }} x @{{ thumbnail.height }}
-                        </td>
-                        <td>
-                            <a :href="thumbnail.url">@{{ thumbnail.url }}</a>
-                        </td>
-                    </tr>
-                </table>
+                <div class="table-responsive" style="margin-bottom: 30px;">
+                    <table class="links-table">
+                        <thead>
+                        <tr>
+                            <td>{{ __('views.resolution') }}</td>
+                            <td>{{ __('views.link') }}</td>
+                        </tr>
+                        </thead>
+                        <tr v-for="(thumbnail, index) in thumbnails_data.thumbnails">
+                            <td>
+                                @{{ thumbnail.width }} x @{{ thumbnail.height }}
+                            </td>
+                            <td>
+                                <a :href="thumbnail.url" target="_blank">@{{ thumbnail.url }}</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
                 <h3>{{ __('views.h3_zip') }}</h3>
                 <div class="zip-link-container">
                     <a :href="thumbnails_data.zip_archive_url" class="zip-url">
