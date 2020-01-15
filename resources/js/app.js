@@ -77,7 +77,6 @@ const app = new Vue({
         },
         defineMaxResolutionImg(data){
             let thumbnails = data.thumbnails;
-
             let maxResolutionWidth = 0;
             let maxResolutionImg;
             for (let key in thumbnails) {
@@ -86,7 +85,6 @@ const app = new Vue({
                     maxResolutionImg = thumbnails[key];
                 }
             }
-            console.log(data)
             this.max_resolution_thumbnail = maxResolutionImg;
         }
     }

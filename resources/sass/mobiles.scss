@@ -3,7 +3,7 @@
         font-size: 2.7rem;
     }
 
-    .app-content-section {
+    .app-content-section, .faq-section {
         width: 80% !important;
     }
 }
@@ -16,7 +16,7 @@
     h2 {
         font-size: 1.8rem;
     }
-    .app-content-section {
+    .app-content-section, .faq-section {
         width: 100% !important;
     }
 
@@ -24,9 +24,6 @@
         width:  100%;
     }
 
-    .result-description {
-        min-width: 700px !important;
-    }
 }
 
 
@@ -47,16 +44,20 @@
             text-align: center !important;
         }
 
-        .result-img {
-            max-width: 550px !important;
-        }
+    }
+
+    .input-group-section {
+        padding: 30px 0px !important;
     }
 
     .result-description {
-        min-width: 600px !important;
 
         p {
             text-align: justify !important;
         }
+    }
+
+    .question-container {
+        flex-wrap: wrap;
     }
 }
