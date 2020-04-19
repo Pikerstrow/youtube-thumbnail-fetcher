@@ -15,6 +15,10 @@ use App\Helpers\Localizer;
 use Illuminate\Support\Facades\Route;
 
 
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
 
 Route::group(['prefix' => Localizer::getLocalizationPrefix(), 'middleware' => ['web']], static function () {
     Route::get('/zip-archives/archive/{archive}', 'ZipArchivesController@index')
@@ -27,4 +31,5 @@ Route::group(['prefix' => Localizer::getLocalizationPrefix(), 'middleware' => ['
 
 Route::get('/', function(){
     return view('index');
-})->middleware('set_localization');;
+})->middleware('set_localization');
+
