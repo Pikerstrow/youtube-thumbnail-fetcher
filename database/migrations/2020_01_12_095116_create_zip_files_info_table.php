@@ -19,6 +19,7 @@ class CreateZipFilesInfoTable extends Migration
             $table->string('path');
             $table->string('url');
             $table->string('youtube_video_id');
+            $table->string('user_ip')->nullable();
             $table->text('thumbnails_info');
             $table->timestamps();
         });

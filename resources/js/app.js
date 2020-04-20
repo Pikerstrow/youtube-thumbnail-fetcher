@@ -28,13 +28,14 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 const app = new Vue({
-    el: '#app',
+    el: '#root_element',
     data: {
         thumbnails_data: {},
         max_resolution_thumbnail: {},
         error: null,
         youtube_url: null,
-        is_data_loading: false
+        is_data_loading: false,
+        isActive: false
     },
     computed: {
         baseUrl(){
@@ -86,6 +87,10 @@ const app = new Vue({
                 }
             }
             this.max_resolution_thumbnail = maxResolutionImg;
+        },
+        toggleActive(){
+            this.isActive = !this.isActive
         }
     }
 });
+

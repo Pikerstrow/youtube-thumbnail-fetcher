@@ -24,9 +24,7 @@ Route::group(['prefix' => Localizer::getLocalizationPrefix(), 'middleware' => ['
     Route::get('/zip-archives/archive/{archive}', 'ZipArchivesController@index')
         ->where('archive', '[A-Za-z0-9_\.]+')->name('archive');
 
-    Route::get('/', function(){
-        return view('index');
-    });
+    Route::get('/', 'PagesController@indexPage')->name('start');
 });
 
 Route::get('/', function(){

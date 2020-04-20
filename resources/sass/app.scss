@@ -9,7 +9,11 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
+//Font Awsome
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 // Styles
 html {
@@ -79,17 +83,31 @@ footer.app-footer {
     align-items: center;
 }
 
+#root_element {
+    padding-top: 50px;
+}
+
 .app-container {
     display: flex;
     flex: 1;
     flex-direction: column;
     justify-content: space-between;
 
+    #header {
+        position: fixed;
+        top: 0;
+        rigth: 0;
+        width: 100%;
+        left: 0;
+        z-index: 99;
+    }
+
     .app-header {
         padding: 5px 30px;
         background-color: #ffffff;
-        border-bottom: 1px solid grey;
+        //border-bottom: 1px solid grey;
         display: flex;
+        position: relative;
 
         .app-nav {
             display: flex;
@@ -97,6 +115,13 @@ footer.app-footer {
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
+
+            .nav-main-container {
+                display: flex;
+                flex: 1;
+                justify-content: space-between;
+                margin-right: 20px;
+            }
 
             .nav-item-container {
                 display: flex;
@@ -122,6 +147,22 @@ footer.app-footer {
                     width: 37px;
                 }
             }
+
+            @import 'hamburger';
+        }
+
+        .nav-menu-list {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            height: 100vh;
+            width: 250px;
+            background: red;
+            transition-duration: .3s;
+        }
+
+        .nav-menu-list.active {
+            right: 0;
         }
     }
 

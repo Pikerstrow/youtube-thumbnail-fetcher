@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\ExtendedLogging;
+use App\Helpers\RequestHelper;
 use App\HttpClient\ThumbnailFilesFetcher;
 use App\ZipFileInfo;
 use Illuminate\Http\Request;
 use App\HttpClient\YoutubeDataFetcher;
-use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
+
+
 
 class ThumbnailFetchController extends Controller
 {
@@ -32,6 +34,7 @@ class ThumbnailFetchController extends Controller
         $data = $request->validate([
             'youtube_url' => 'string|max:255|min:30|url'
         ]);
+
 
         try {
             $url_get_param = parse_url($data['youtube_url'])['query'];
@@ -58,6 +61,7 @@ class ThumbnailFetchController extends Controller
                 $zip_archive_info = $files_fetcher->fetchFiles();
                 $zip_archive_info['youtube_video_id'] = $video_id;
                 $zip_archive_info['thumbnails_info'] = json_encode($thumbnails);
+                $zip_archive_info['user_ip'] = RequestHelper::getIp();
 
                 $zip_file_info = ZipFileInfo::create($zip_archive_info);
 
