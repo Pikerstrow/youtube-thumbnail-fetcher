@@ -49610,8 +49610,19 @@ var app = new Vue({
 
       this.max_resolution_thumbnail = maxResolutionImg;
     },
+    getScrollbarWidth: function getScrollbarWidth() {
+      return window.innerWidth - document.documentElement.clientWidth;
+    },
     toggleActive: function toggleActive() {
       this.isActive = !this.isActive;
+
+      if (this.isActive) {
+        var marginRight = this.getScrollbarWidth();
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.marginRight = marginRight + 'px';
+      } else {
+        document.documentElement.style.overflow = 'auto', document.body.style.marginRight = '0px';
+      }
     }
   }
 });

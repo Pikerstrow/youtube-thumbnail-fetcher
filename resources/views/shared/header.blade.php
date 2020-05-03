@@ -23,6 +23,23 @@
         </div>
     </nav>
     <div class="nav-menu-list" :class="{'active': isActive}">
-
+        <ul class="side-menu">
+            <li>
+                <a href="" class="side-menu-li  <?php echo $page->slug === 'index' ? 'active' : null ?>">
+                    <div class="i-container">
+                        <i class="fas fa-home fa-lg"></i>
+                    </div>
+                    <span>Thumbnail Picker</span>
+                </a>
+            </li>
+            <li>
+                <a href="" class="side-menu-li <?php echo $page->slug === 'blog' ? 'active' : null ?>">
+                    <div class="i-container">
+                        <i class="fas fa-fire-alt fa-lg"></i>
+                    </div>
+                    <span>Blog</span>
+                </a>
+            </li>
+        </ul>
     </div>
 </header>

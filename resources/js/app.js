@@ -88,8 +88,19 @@ const app = new Vue({
             }
             this.max_resolution_thumbnail = maxResolutionImg;
         },
+        getScrollbarWidth() {
+            return window.innerWidth - document.documentElement.clientWidth;
+        },
         toggleActive(){
             this.isActive = !this.isActive
+            if(this.isActive){
+                let marginRight = this.getScrollbarWidth();
+                document.documentElement.style.overflow = 'hidden'
+                document.body.style.marginRight = marginRight + 'px'
+            } else {
+                document.documentElement.style.overflow = 'auto',
+                document.body.style.marginRight = '0px'
+            }
         }
     }
 });

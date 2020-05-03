@@ -6,7 +6,7 @@
 @section('og_url', route('start'))
 
 @section('header')
-    @include('shared.header', ['logo_text' => 'Youtube Thumbnail Picker'])
+    @include('shared.header', ['logo_text' => 'Youtube Thumbnail Picker', 'page' => $page])
 @endsection
 
 @section('content')

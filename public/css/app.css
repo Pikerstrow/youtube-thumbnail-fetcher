@@ -17547,6 +17547,7 @@ footer.app-footer {
 .app-container .app-header {
   padding: 5px 30px;
   background-color: #ffffff;
+  height: 55px;
   display: -webkit-box;
   display: flex;
   position: relative;
@@ -17677,17 +17678,64 @@ footer.app-footer {
 
 .app-container .app-header .nav-menu-list {
   position: fixed;
-  top: 0;
-  right: -250px;
+  top: 55px;
+  right: -260px;
   height: 100vh;
-  width: 250px;
-  background: red;
+  width: 260px;
+  background: #ffffff;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  padding: 15px 30px;
+}
+
+.app-container .app-header .nav-menu-list .side-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container .app-header .nav-menu-list .side-menu .side-menu-li {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+  color: #1d2124;
+  text-decoration: none;
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
 }
 
+.app-container .app-header .nav-menu-list .side-menu .side-menu-li .i-container {
+  width: 35px;
+}
+
+.app-container .app-header .nav-menu-list .side-menu .side-menu-li span {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2rem;
+}
+
+.app-container .app-header .nav-menu-list .side-menu .side-menu-li.active {
+  color: #ff4b4b;
+}
+
 .app-container .app-header .nav-menu-list.active {
   right: 0;
+}
+
+.app-container .app-header .nav-menu-list.active::before {
+  content: "";
+  display: block;
+  background: rgba(0, 0, 0, 0.3);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: -100vw;
+  top: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
 }
 
 .app-container .error-a {
