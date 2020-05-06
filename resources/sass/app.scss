@@ -117,6 +117,11 @@ footer.app-footer {
             justify-content: space-between;
             align-items: center;
 
+            .logo-a {
+                text-decoration: none;
+                color: #1d2124
+            }
+
             .nav-main-container {
                 display: flex;
                 flex: 1;

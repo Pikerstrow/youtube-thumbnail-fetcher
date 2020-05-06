@@ -17567,6 +17567,11 @@ footer.app-footer {
           align-items: center;
 }
 
+.app-container .app-header .app-nav .logo-a {
+  text-decoration: none;
+  color: #1d2124;
+}
+
 .app-container .app-header .app-nav .nav-main-container {
   display: -webkit-box;
   display: flex;

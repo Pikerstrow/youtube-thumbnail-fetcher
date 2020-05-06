@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\App;
 
 class PagesController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function indexPage()
     {
         try {

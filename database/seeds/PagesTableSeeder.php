@@ -209,7 +209,7 @@ class PagesTableSeeder extends Seeder
         Permission::generateFor('pages');
         //Content
         $page = Page::firstOrNew([
-            'slug' => 'hello-world',
+            'slug' => 'index',
         ]);
         if (!$page->exists) {
             $page->fill([
@@ -223,6 +223,25 @@ class PagesTableSeeder extends Seeder
 
             $this->trans('ru', $this->arr(['pages', 'title'], $page->id), 'Youtube - получить главное изображение видео');
             $this->trans('ru', $this->arr(['pages', 'body'], $page->id), include(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'page_bodies' . DIRECTORY_SEPARATOR . 'ru' . DIRECTORY_SEPARATOR . 'index.php'));
+            $this->trans('ru', $this->arr(['pages', 'meta_description'], $page->id), 'YouTube Thumbnails Image Picker - это бесплатный сервис для получения миниатюр (изображений) во всех доступных разрешениях из видео Youtube по URL.');
+            $this->trans('ru', $this->arr(['pages', 'meta_keywords'], $page->id), 'Youtube видео изображение, получить изображение из видео на youtube, youtube главное изображение к видео');
+        }
+
+        $page = Page::firstOrNew([
+            'slug' => 'posts',
+        ]);
+        if (!$page->exists) {
+            $page->fill([
+                'title'     => 'Posts on Youtube Thumbnail Picker. All important about Youtube!',
+                'body'      => '',
+                'slug'      => 'posts',
+                'meta_description' => 'YouTube Thumbnails Picker - is a free service for getting thumbnails (images) and all important information about Youtube.',
+                'meta_keywords'    => 'Youtube video image picker, get youtube thumbnail, youtube video thumbnail, youtube thumbnail picker',
+                'status'           => 'ACTIVE',
+            ])->save();
+
+            $this->trans('ru', $this->arr(['pages', 'title'], $page->id), 'Блог на Youtube Thumbnail Picker. Все важное о Ютубе');
+            $this->trans('ru', $this->arr(['pages', 'body'], $page->id), '');
             $this->trans('ru', $this->arr(['pages', 'meta_description'], $page->id), 'YouTube Thumbnails Image Picker - это бесплатный сервис для получения миниатюр (изображений) во всех доступных разрешениях из видео Youtube по URL.');
             $this->trans('ru', $this->arr(['pages', 'meta_keywords'], $page->id), 'Youtube видео изображение, получить изображение из видео на youtube, youtube главное изображение к видео');
         }

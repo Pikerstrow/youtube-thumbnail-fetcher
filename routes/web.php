@@ -25,7 +25,10 @@ Route::group(['prefix' => Localizer::getLocalizationPrefix(), 'middleware' => ['
         ->where('archive', '[A-Za-z0-9_\.]+')->name('archive');
 
     Route::get('/', 'PagesController@indexPage')->name('start');
+    Route::get('/posts', 'PostsController@index')->name('posts');
+    Route::get('/posts/{slug}', 'PostsController@show')->name('post');
 });
+
 
 Route::get('/', function(){
     return view('index');
