@@ -81,10 +81,14 @@ footer.app-footer {
     align-self: stretch;
     justify-content: center;
     align-items: center;
+    margin-top: auto;
 }
 
 #root_element {
     padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .app-container {
@@ -160,9 +164,9 @@ footer.app-footer {
         .nav-menu-list {
             position: fixed;
             top: 55px;
-            right: -260px;
+            right: -280px;
             height: 100vh;
-            width: 260px;
+            width: 280px;
             background: #ffffff;
             transition-duration: .3s;
             padding: 15px 30px;
@@ -500,6 +504,7 @@ footer.app-footer {
 
     }
 }
-
+// Posts
+@import 'posts';
 // Mobiles
 @import 'mobiles';

@@ -6,6 +6,7 @@ use App\Helpers\Localizer;
 
 
 
+
 if (!\function_exists('voyager_image')) {
 
     /**
@@ -30,6 +31,20 @@ if(!\function_exists('get_cleaned_uri')) {
     function get_cleaned_uri()
     {
         return Localizer::getCleanedUri();
+    }
+}
+
+
+
+if(!\function_exists('storage_url')) {
+
+    /**
+     * @param $uri
+     * @return string
+     */
+    function storage_url($uri)
+    {
+        return asset('storage/' . $uri);
     }
 }
 

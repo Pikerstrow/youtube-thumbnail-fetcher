@@ -1,0 +1,78 @@
+// Variables
+@import 'variables';
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+
+    &__h1 {
+        color: $red;
+        font-family: 'Roboto Slab', sans-serif;
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+        letter-spacing: -.8px;
+    }
+
+    &__note {
+        font-family: 'Roboto Slab', sans-serif;
+        font-weight: normal;
+        font-size: 1.1rem;
+    }
+
+    &__container {
+        max-width: 70%;
+        flex: 0 1 80%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 10px;
+
+        &__post_card {
+            display: flex;
+            flex-direction: column;
+            flex: 0 1 48%;
+            margin-bottom: 30px;
+            text-decoration: none;
+            color: rgb(56, 56, 56);
+            transition-duration: .2s;
+            background: #ffffff;
+
+            &__body {
+                padding: 20px 20px;
+            }
+
+            &:hover {
+                text-decoration: none;
+                color: rgb(56, 56, 56);
+                -webkit-box-shadow: 0 5px 15px 8px rgba(0, 0, 0, .23);
+                -moz-box-shadow: 0 5px 15px 8px rgba(0, 0, 0, .23);
+                box-shadow: 0 5px 15px 8px rgba(0, 0, 0, .23);
+            }
+
+            &__thumbnail {
+                object-fit: cover;
+                width: 100%;
+                height: auto;
+            }
+
+            &__title {
+                font-family: 'Roboto Slab', sans-serif;
+                font-size: 1.2rem;
+                font-weight: bold;
+                width: 100%;
+                letter-spacing: -.8px;
+                text-align: left;
+            }
+
+            &__read_more {
+                color: $red;
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

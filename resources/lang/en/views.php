@@ -15,4 +15,6 @@ return [
     'fetch' => 'Fetch Image',
     'not_found' => 'Page not found',
     'to_main' => 'To Main Page',
+    'thumbnail_picker' => 'Thumbnail Picker',
+    'blog' => 'Blog'
 ];

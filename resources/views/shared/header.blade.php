@@ -32,7 +32,7 @@
                     <div class="i-container">
                         <i class="fas fa-home fa-lg"></i>
                     </div>
-                    <span>Thumbnail Picker</span>
+                    <span>{{ __('views.thumbnail_picker') }}</span>
                 </a>
             </li>
             <li>
@@ -41,7 +41,7 @@
                     <div class="i-container">
                         <i class="fas fa-fire-alt fa-lg"></i>
                     </div>
-                    <span>Blog</span>
+                    <span>{{ __('views.blog') }}</span>
                 </a>
             </li>
         </ul>

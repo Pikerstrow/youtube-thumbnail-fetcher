@@ -43,5 +43,13 @@ class AppServiceProvider extends ServiceProvider
             return '<?php echo Localizer::getCleanedUri(); ?>';
         });
 
+        /**
+         * Blade directive for getting url to storage
+         */
+        Blade::directive('storage_url', static function ($uri) {
+            return "<?php echo asset('storage/$uri'); ?>";
+        });
+
+
     }
 }

@@ -6,6 +6,11 @@
     .app-content-section, .faq-section {
         width: 80% !important;
     }
+
+    .posts__container {
+        max-width: 90%;
+        flex: 0 1 90%;
+    }
 }
 
 
@@ -22,6 +27,15 @@
 
     .notes-div {
         width:  100%;
+    }
+
+    .posts__container {
+        max-width: 90%;
+        flex: 0 1 90%;
+    }
+
+    .posts__container__post_card {
+        flex: 0 1 100%
     }
 
 }
@@ -59,5 +73,10 @@
 
     .question-container {
         flex-wrap: wrap;
+    }
+
+    .posts__container {
+        max-width: 100%;
+        flex: 0 1 96%;
     }
 }

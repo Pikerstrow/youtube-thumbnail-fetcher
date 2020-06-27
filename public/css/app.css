@@ -17517,10 +17517,18 @@ footer.app-footer {
           justify-content: center;
   -webkit-box-align: center;
           align-items: center;
+  margin-top: auto;
 }
 
 #root_element {
   padding-top: 50px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+          flex: 1;
 }
 
 .app-container {
@@ -17684,9 +17692,9 @@ footer.app-footer {
 .app-container .app-header .nav-menu-list {
   position: fixed;
   top: 55px;
-  right: -260px;
+  right: -280px;
   height: 100vh;
-  width: 260px;
+  width: 280px;
   background: #ffffff;
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
@@ -18096,6 +18104,94 @@ footer.app-footer {
           justify-content: flex-start;
 }
 
+.posts {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  padding: 30px;
+}
+
+.posts__h1 {
+  color: #e3342f;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  letter-spacing: -0.8px;
+}
+
+.posts__note {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: normal;
+  font-size: 1.1rem;
+}
+
+.posts__container {
+  max-width: 70%;
+  -webkit-box-flex: 0;
+          flex: 0 1 80%;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  margin-top: 10px;
+}
+
+.posts__container__post_card {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-flex: 0;
+          flex: 0 1 48%;
+  margin-bottom: 30px;
+  text-decoration: none;
+  color: #383838;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  background: #ffffff;
+}
+
+.posts__container__post_card__body {
+  padding: 20px 20px;
+}
+
+.posts__container__post_card:hover {
+  text-decoration: none;
+  color: #383838;
+  box-shadow: 0 5px 15px 8px rgba(0, 0, 0, 0.23);
+}
+
+.posts__container__post_card__thumbnail {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.posts__container__post_card__title {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 100%;
+  letter-spacing: -0.8px;
+  text-align: left;
+}
+
+.posts__container__post_card__read_more {
+  color: #e3342f;
+  font-size: 1.2rem;
+}
+
 @media screen and (max-width: 1250px) {
   h1 {
     font-size: 2.7rem;
@@ -18104,6 +18200,12 @@ footer.app-footer {
   .app-content-section,
   .faq-section {
     width: 80% !important;
+  }
+
+  .posts__container {
+    max-width: 90%;
+    -webkit-box-flex: 0;
+            flex: 0 1 90%;
   }
 }
 
@@ -18123,6 +18225,17 @@ footer.app-footer {
 
   .notes-div {
     width: 100%;
+  }
+
+  .posts__container {
+    max-width: 90%;
+    -webkit-box-flex: 0;
+            flex: 0 1 90%;
+  }
+
+  .posts__container__post_card {
+    -webkit-box-flex: 0;
+            flex: 0 1 100%;
   }
 }
 
@@ -18152,6 +18265,12 @@ footer.app-footer {
 
   .question-container {
     flex-wrap: wrap;
+  }
+
+  .posts__container {
+    max-width: 100%;
+    -webkit-box-flex: 0;
+            flex: 0 1 96%;
   }
 }
 
