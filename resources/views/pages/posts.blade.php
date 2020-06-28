@@ -21,7 +21,7 @@
         </article>
         <section class="posts__container">
             @foreach($posts as $post)
-                <a href="#" class="posts__container__post_card">
+                <a href="{{ route('post', $post->slug) }}" class="posts__container__post_card">
                     <article>
                         <picture>
                             <img class="posts__container__post_card__thumbnail" src="{{ storage_url($post->image) }}"
@@ -34,6 +34,9 @@
                     </article>
                 </a>
             @endforeach
+            <div class="posts__pagination_container">
+                {{ $posts->links() }}
+            </div>
         </section>
     </section>
 @endsection

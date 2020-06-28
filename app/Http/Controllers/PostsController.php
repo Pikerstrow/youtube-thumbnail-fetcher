@@ -24,8 +24,22 @@ class PostsController extends Controller
     }
 
 
-    public function show()
+    public function show(string $slug)
     {
+        try {
+            $post = Post::with('translations')->where('slug', '=', $slug)->first();
+            $page = Page::with('translations')->where('slug', '=','posts')->first();
 
+            if (empty($post) || empty($page)) {
+                abort(404);
+            }
+            if(view()->exists('pages.post')){
+                return view('pages.post', compact('post', 'page'));
+            } else {
+                abort(404);
+            }
+        } catch (\Throwable $exception) {
+            abort(500);
+        }
     }
 }

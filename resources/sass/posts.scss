@@ -75,4 +75,30 @@
             }
         }
     }
+
+    &__pagination_container {
+        display: flex;
+        flex: 0 1 100%;
+        justify-content: center;
+
+        ul.pagination {
+            border-radius: 0;
+            color: rgb(56, 56, 56)
+        }
+
+        .page-item:first-child .page-link, .page-item:last-child .page-link {
+            border-radius: 0;
+        }
+
+        .page-item.active .page-link {
+            z-index: 3;
+            color: rgb(56, 56, 56);
+            background-color: #e7e7e7;
+            border-color: #dee2e6;
+        }
+
+        .page-item.active span {
+            font-weight: bold;
+        }
+    }
 }
