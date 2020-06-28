@@ -16,5 +16,6 @@ return [
     'not_found' => 'Page not found',
     'to_main' => 'To Main Page',
     'thumbnail_picker' => 'Thumbnail Picker',
-    'blog' => 'Blog'
+    'blog' => 'Blog',
+    'main_page' => 'Main page'
 ];

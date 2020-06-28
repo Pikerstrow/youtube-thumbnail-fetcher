@@ -29,6 +29,10 @@
         width:  100%;
     }
 
+    .post__article__body_container {
+        max-width: 85%;
+    }
+
     .posts__container {
         max-width: 90%;
         flex: 0 1 90%;
@@ -73,6 +77,10 @@
 
     .question-container {
         flex-wrap: wrap;
+    }
+
+    .post__article__body_container {
+        max-width: 95%;
     }
 
     .posts__container {

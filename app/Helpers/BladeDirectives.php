@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use TCG\Voyager\Facades\Voyager;
 use App\Helpers\Localizer;
 
@@ -45,6 +46,23 @@ if(!\function_exists('storage_url')) {
     function storage_url($uri)
     {
         return asset('storage/' . $uri);
+    }
+}
+
+
+if(!\function_exists('reformat_date')) {
+
+    /**
+     * @param $date
+     * @return string
+     * @throws Exception
+     */
+    function reformat_date($date)
+    {
+        $datetime = new Carbon($date);
+        $locale = config('app.locale');
+        $datetime->locale($locale);
+        return $datetime->day . ' ' . $datetime->monthName . ', ' . $datetime->year;
     }
 }
 

@@ -29,12 +29,13 @@ class PostsController extends Controller
         try {
             $post = Post::with('translations')->where('slug', '=', $slug)->first();
             $page = Page::with('translations')->where('slug', '=','posts')->first();
+            $latest_posts = Post::where('slug', '!=', $slug)->orderBy('id', 'desc')->limit(3)->get();
 
             if (empty($post) || empty($page)) {
                 abort(404);
             }
             if(view()->exists('pages.post')){
-                return view('pages.post', compact('post', 'page'));
+                return view('pages.post', compact('post', 'page', 'latest_posts'));
             } else {
                 abort(404);
             }

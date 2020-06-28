@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
@@ -48,6 +49,17 @@ class AppServiceProvider extends ServiceProvider
          */
         Blade::directive('storage_url', static function ($uri) {
             return "<?php echo asset('storage/$uri'); ?>";
+        });
+
+
+        /**
+         * Blade directive for displaying post date
+         */
+        Blade::directive('reformat_date', static function ($date) {
+            $datetime = new Carbon($date);
+            $locale = config('app.locale');
+            $datetime->locale($locale);
+            return "<?php echo $datetime->day . ' ' . $datetime->monthName . ', ' . $datetime->year; ?>";
         });
 
 
