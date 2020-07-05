@@ -49559,7 +49559,7 @@ var app = new Vue({
   },
   computed: {
     baseUrl: function baseUrl() {
-      return "https://youtube-thumbnail.test";
+      return "https://get-youtube-video-thumbnail-image.com";
     }
   },
   methods: {

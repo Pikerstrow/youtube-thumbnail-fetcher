@@ -1,5 +1,4 @@
 @extends('layouts.main')
-
 @section('title', $post->getTranslatedAttribute('seo_title'))
 @section('meta_description', $post->getTranslatedAttribute('meta_description') ?? '')
 @section('meta_keywords', $post->getTranslatedAttribute('meta_keywords') ?? '')
@@ -40,6 +39,23 @@
             <div class="post__article__body_container">
                 {!! $post->getTranslatedAttribute('body') !!}
             </div>
+            <section class="post__article__latest">
+                <h3 class="post__article__latest__title">{{ __('views.latests_posts') }}</h3>
+                @foreach($latest_posts as $new_post)
+                    <a href="{{ route('post', $new_post->slug) }}" class="post__article__latest__post_card">
+                        <article>
+                            <picture>
+                                <img class="post__article__latest__post_card__thumbnail" src="{{ storage_url($new_post->image) }}"
+                                     alt="post-thumbnail">
+                            </picture>
+                            <div class="post__article__latest__post_card__body">
+                                <h3 class="post__article__latest__post_card__title">{{ $new_post->getTranslatedAttribute('title') }}</h3>
+                                <span class="post__article__latest__post_card__date">{{ reformat_date($new_post->created_at) }}</span>
+                            </div>
+                        </article>
+                    </a>
+                @endforeach
+            </section>
         </article>
 
     </section>

@@ -17,5 +17,7 @@ return [
     'to_main' => 'To Main Page',
     'thumbnail_picker' => 'Thumbnail Picker',
     'blog' => 'Blog',
-    'main_page' => 'Main page'
+    'main_page' => 'Main page',
+    'latests_posts' => 'Latest news',
+    'comming_soom' => 'Page is empty at the moment :)'
 ];

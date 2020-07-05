@@ -8,7 +8,6 @@
 @section('header')
     @include('shared.header', ['logo_text' => 'Youtube Thumbnail Picker', 'page' => $page])
 @endsection
-
 @section('content')
     <section class="posts">
         <article>
@@ -20,23 +19,34 @@
             </header>
         </article>
         <section class="posts__container">
-            @foreach($posts as $post)
-                <a href="{{ route('post', $post->slug) }}" class="posts__container__post_card">
-                    <article>
-                        <picture>
-                            <img class="posts__container__post_card__thumbnail" src="{{ storage_url($post->image) }}"
-                                 alt="post-thumbnail">
-                        </picture>
-                        <div class="posts__container__post_card__body">
-                            <h3 class="posts__container__post_card__title">{{ $post->getTranslatedAttribute('title') }}</h3>
-                            <p class="posts__container__post_card__excerpt">{{ $post->getTranslatedAttribute('excerpt') }}&nbsp;&nbsp;<span class="posts__container__post_card__read_more">&gt;&gt;&gt;</span></p>
-                        </div>
-                    </article>
-                </a>
-            @endforeach
-            <div class="posts__pagination_container">
-                {{ $posts->links() }}
-            </div>
+            @if($posts->count())
+                @foreach($posts as $post)
+                    <a href="{{ route('post', $post->slug) }}" class="posts__container__post_card">
+                        <article>
+                            <picture>
+                                <img class="posts__container__post_card__thumbnail" src="{{ storage_url($post->image) }}"
+                                     alt="post-thumbnail">
+                            </picture>
+                            <div class="posts__container__post_card__body">
+                                <h3 class="posts__container__post_card__title">{{ $post->getTranslatedAttribute('title') }}</h3>
+                                <span class="posts__container__post_card__date">{{ reformat_date($post->created_at) }}</span>
+                                <p class="posts__container__post_card__excerpt">{{ $post->getTranslatedAttribute('excerpt') }}&nbsp;&nbsp;<span class="posts__container__post_card__read_more">&gt;&gt;&gt;</span></p>
+                            </div>
+                        </article>
+                    </a>
+                @endforeach
+                <div class="posts__pagination_container">
+                    {{ $posts->links() }}
+                </div>
+            @else
+                <div class="posts__container__no_content">
+                    <img src="{{ url('images/logo.png') }}" class="posts__container__no_content__img" />
+                    <h3 class="posts__container__no_content__title">{{ __('views.comming_soom') }}</h3>
+                    <a href="{{ route('start') }}" class="posts__container__no_content__go_back">
+                        <span>{{ __('views.to_main') }}</span>
+                    </a>
+                </div>
+            @endif
         </section>
     </section>
 @endsection
