@@ -18146,6 +18146,9 @@ footer.app-footer {
   -webkit-box-pack: justify;
           justify-content: space-between;
   margin-top: 10px;
+  background: #fff;
+  padding: 10px 15px;
+  border-radius: 8px;
 }
 
 .posts__container__no_content {
