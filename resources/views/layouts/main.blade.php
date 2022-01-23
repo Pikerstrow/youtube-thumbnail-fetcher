@@ -39,9 +39,11 @@
     </script>
 
     <!-- Add sense -->
-    <script data-ad-client="ca-pub-6716155684505848" async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!--<script data-ad-client="ca-pub-6716155684505848" async-->
+    <!--        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6716155684505848"
+     crossorigin="anonymous"></script>
 </head>
 <body class="app-container">
 <div id="root_element">
