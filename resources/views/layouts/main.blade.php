@@ -25,7 +25,9 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-82253603-6"></script>
+    @if(env('APP_ENV') !== 'local')
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-82253603-6"></script>
+    @endif
     <script>
         window.dataLayer = window.dataLayer || [];
 
