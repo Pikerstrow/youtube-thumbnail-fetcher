@@ -49522,7 +49522,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(process) {/**
+/**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
@@ -49559,7 +49559,7 @@ var app = new Vue({
   },
   computed: {
     baseUrl: function baseUrl() {
-      return process.env.MIX_APP_URL;
+      return "http://youtube-thumbnail.local";
     }
   },
   methods: {
@@ -49626,7 +49626,6 @@ var app = new Vue({
     }
   }
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
