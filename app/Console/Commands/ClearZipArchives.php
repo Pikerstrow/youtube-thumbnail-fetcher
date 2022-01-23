@@ -2,7 +2,10 @@
 
 namespace App\Console\Commands;
 
+use App\ZipFileInfo;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class ClearZipArchives extends Command
 {
@@ -37,6 +40,20 @@ class ClearZipArchives extends Command
      */
     public function handle()
     {
-
+        try {
+            $dayAgo = Carbon::now()->subDay()->toDateTimeString();
+            $archives = ZipFileInfo::where('created_at', '<', $dayAgo)->get();
+            if (empty($archives)) {
+                die;
+            }
+            $pathes = $archives->pluck('path')->toArray();
+            foreach ($pathes as $path) {
+                unlink($path);
+            }
+            ZipFileInfo::where('created_at', '<', $dayAgo)->delete();
+        } catch (\Throwable $exception) {
+            $message = 'File: ' . $exception->getFile() . ". Line: " . $exception->getLine() . ". Error message: " . $exception->getMessage();
+            Log::channel('single')->info($message);
+        }
     }
 }

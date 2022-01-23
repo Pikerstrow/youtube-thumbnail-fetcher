@@ -57,6 +57,11 @@ class ThumbnailFilesFetcher
             $valid_to = time() + 86400;
             $archive_name = 'thumbnails_' . $valid_to . '.zip';
 
+            $dirPath = storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'zip');
+            if (!is_dir($dirPath)) {
+                mkdir($dirPath, 0777, true);
+            }
+
             $path = storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'zip' . DIRECTORY_SEPARATOR . $archive_name);
             touch($path);
             if ($zip->open($path, ZipArchive::CREATE) === TRUE) {
@@ -80,6 +85,7 @@ class ThumbnailFilesFetcher
                 throw new \Exception('Creating archive failed');
             }
         } catch (\Throwable $e) {
+            dd($e);
             throw new \Exception('Download failed');
         }
     }

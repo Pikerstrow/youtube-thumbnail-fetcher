@@ -10,7 +10,6 @@ class ZipArchivesController extends Controller
     public function index(Request $request, ZipFileInfo $archive)
     {
         $time = substr($archive->file_name, $start = (strpos($archive->file_name, '_') + 1), (strpos($archive->file_name, '.') - $start));
-
         if(time() > (int)$time ){
             abort(404);
             return;
