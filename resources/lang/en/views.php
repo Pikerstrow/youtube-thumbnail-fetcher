@@ -12,7 +12,7 @@ return [
     'link' => 'Link',
     'archive_note' => 'Please, pay attention, that link for zip archive is valid only or 24 hours.',
     'clear' => 'Clear',
-    'fetch' => 'Fetch Image',
+    'fetch' => 'Get YouTube Thumbnail',
     'not_found' => 'Page not found',
     'to_main' => 'To Main Page',
     'thumbnail_picker' => 'Thumbnail Picker',
