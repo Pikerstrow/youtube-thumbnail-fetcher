@@ -11,8 +11,8 @@
                 <a href="{{ url("/en/" . get_cleaned_uri()) }}" class="a-lng" title="english">
                     <img src="{{ url('images/united_kingdom.png') }}" class="a-img" alt="english">
                 </a>
-                <a href="{{ url("/ru/" . get_cleaned_uri()) }}" class="a-lng" title="русский">
-                    <img src="{{ url('images/russian.png') }}" class="a-img" alt="русский">
+                <a href="{{ url("/ua/" . get_cleaned_uri()) }}" class="a-lng" title="українська">
+                    <img src="{{ url('images/ukrainian.png') }}" class="a-img" alt="українська">
                 </a>
             </div>
         </div>
@@ -32,16 +32,25 @@
                     <div class="i-container">
                         <i class="fas fa-home fa-lg"></i>
                     </div>
-                    <span>{{ __('views.thumbnail_picker') }}</span>
+                    <span>{{ __('views.index.thumbnail_picker') }}</span>
                 </a>
             </li>
+{{--            <li>--}}
+{{--                <a href="{{ route('videoDownloader') }}"--}}
+{{--                   class="side-menu-li  <?php echo $page->slug === 'video-downloader' ? 'active' : null ?>">--}}
+{{--                    <div class="i-container">--}}
+{{--                        <i class="fas fa-video fa-lg"></i>--}}
+{{--                    </div>--}}
+{{--                    <span>{{ __('views.index.video_downloader') }}</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
             <li>
                 <a href="{{ route('posts') }}"
                    class="side-menu-li <?php echo $page->slug === 'posts' ? 'active' : null ?>">
                     <div class="i-container">
                         <i class="fas fa-fire-alt fa-lg"></i>
                     </div>
-                    <span>{{ __('views.blog') }}</span>
+                    <span>{{ __('views.index.blog') }}</span>
                 </a>
             </li>
         </ul>

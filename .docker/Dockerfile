@@ -1,4 +1,4 @@
-FROM php:7.4.1-apache
+FROM php:8.1.8-apache
 
 USER root
 
@@ -23,6 +23,8 @@ RUN apt update && apt install -y \
     && docker-php-source delete
 
 COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
+
+ADD /.docker/php/php.ini /usr/local/etc/php/conf.d/php.ini
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 

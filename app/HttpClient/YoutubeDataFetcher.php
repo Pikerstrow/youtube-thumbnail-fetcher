@@ -4,6 +4,9 @@ namespace App\HttpClient;
 
 
 
+use Exception;
+use Throwable;
+
 class YoutubeDataFetcher
 {
     protected $resource;
@@ -19,7 +22,6 @@ class YoutubeDataFetcher
         $this->api_key  = 'AIzaSyCsdsOGHaALxh6IuOfKsQgtAbAyAEThZec';
         $this->base_url = 'https://www.googleapis.com/youtube/v3/videos';
     }
-
 
     /**
      * @param string $id

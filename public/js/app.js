@@ -49566,19 +49566,27 @@ var app = new Vue({
     sendUrl: function sendUrl() {
       var _this = this;
 
+      var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'fetch-thumbnail';
+
       if (!this.youtube_url) {
         return;
       }
 
       this.is_data_loading = true;
-      var url = this.baseUrl + '/api/fetch-thumbnail';
+      var url = this.baseUrl + '/api/' + target;
       axios.post(url, {
         youtube_url: this.youtube_url
       }).then(function (response) {
-        if (response.data) {
+        if (!response.data) {
+          return _this.error = 'Something went wrong...';
+        }
+
+        if (target === 'fetch-thumbnail') {
           _this.thumbnails_data = response.data;
 
           _this.defineMaxResolutionImg(response.data);
+        } else {
+          console.log(response.data);
         }
       })["catch"](function (err) {
         if (err && err.response && err.response.data && err.response.data.errors) {
@@ -49768,8 +49776,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/html/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/html/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/pikerstrow/Проекти/Web Apps/Own Projects/youtube-thumbnail-fetcher/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/pikerstrow/Проекти/Web Apps/Own Projects/youtube-thumbnail-fetcher/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

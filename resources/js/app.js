@@ -43,17 +43,22 @@ const app = new Vue({
         }
     },
     methods: {
-        sendUrl(){
+        sendUrl(target = 'fetch-thumbnail'){
             if(!this.youtube_url){
                 return;
             }
             this.is_data_loading = true;
-            let url = this.baseUrl + '/api/fetch-thumbnail';
+            let url = this.baseUrl + '/api/' + target;
             axios.post(url, {youtube_url: this.youtube_url})
                 .then(response => {
-                    if(response.data){
+                    if(!response.data){
+                        return this.error = 'Something went wrong...';
+                    }
+                    if (target === 'fetch-thumbnail') {
                         this.thumbnails_data = response.data;
                         this.defineMaxResolutionImg(response.data);
+                    } else {
+                        console.log(response.data)
                     }
                 })
                 .catch(err => {

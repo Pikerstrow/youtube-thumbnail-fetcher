@@ -82,7 +82,7 @@ return [
 
     'locale' => 'en',
     'default_locale' => 'en',
-    'available_locales' => ['en', 'ru'],
+    'available_locales' => ['en', 'ru', 'ua'],
 
     /*
     |--------------------------------------------------------------------------

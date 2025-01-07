@@ -13,11 +13,11 @@
     <section id="app" style="display:flex; flex: 1; flex-direction: column; align-items: center;">
 
         <section class="app-content-section">
-            <h1>{{ __('views.index.h1') }}</h1>
-            <p>{{ __('views.index.description') }}</p>
+            <h1>{{ __('views.video.h1') }}</h1>
+            <p>{{ __('views.video.description') }}</p>
             <div class="notes-div">
-                <span class="note_title">{{ __('views.index.note') }}</span>
-                <span class="note_txt">{{ __('views.index.note_txt') }}</span>
+                <span class="note_title">{{ __('views.video.note') }}</span>
+                <span class="note_txt">{{ __('views.video.note_txt') }}</span>
             </div>
 
             <section class="input-group-section">
@@ -33,8 +33,8 @@
                         <div class="err-container">
                             <span class="error-txt" v-if="error">@{{ error }}</span>
                         </div>
-                        <button @click="sendUrl()" type="button" class="submit-btn">
-                            <span v-if="!is_data_loading">{{ __('views.index.fetch') }}</span>
+                        <button @click="sendUrl('fetch-video')" type="button" class="submit-btn">
+                            <span v-if="!is_data_loading">{{ __('views.video.fetch') }}</span>
                             <img style="width: 25px; height: 25px" v-else src="{{ asset('images/preloader.gif') }}">
                         </button>
                     </form>
@@ -51,15 +51,15 @@
                 </div>
                 <div class="result-description">
                     <p style="text-align: center">
-                        <span class="note_title">{{ __('views.note') }}</span><span class="note_txt">{{ __('views.index.links_note') }}</span>
+                        <span class="note_title">{{ __('views.note') }}</span><span class="note_txt">{{ __('views.links_note') }}</span>
                     </p>
-                    <h3>{{ __('views.index.h3_links') }}</h3>
+                    <h3>{{ __('views.h3_links') }}</h3>
                     <div class="table-responsive" style="margin-bottom: 30px;">
                         <table class="links-table">
                             <thead>
                             <tr>
-                                <td>{{ __('views.index.resolution') }}</td>
-                                <td>{{ __('views.index.link') }}</td>
+                                <td>{{ __('views.resolution') }}</td>
+                                <td>{{ __('views.link') }}</td>
                             </tr>
                             </thead>
                             <tr v-for="(thumbnail, index) in thumbnails_data.thumbnails">
@@ -79,11 +79,11 @@
                         </a>
                     </div>
                     <p style="text-align: center">
-                        <span class="note_title">{{ __('views.index.note') }}</span><span class="note_txt">{{ __('views.index.archive_note') }}</span>
+                        <span class="note_title">{{ __('views.note') }}</span><span class="note_txt">{{ __('views.archive_note') }}</span>
                     </p>
                     <div class="zip-link-container">
                         <div @click="clearResults()" class="skip-btn">
-                            {{ __('views.index.clear') }}
+                            {{ __('views.clear') }}
                         </div>
                     </div>
                 </div>

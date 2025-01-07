@@ -25,4 +25,19 @@ class PagesController extends Controller
             abort(500);
         }
     }
+
+    public function videoDownloaderPage()
+    {
+        try {
+            $page = Page::with('translations')->where('slug', '=', 'video-downloader')->firstOrFail();
+
+            if(view()->exists('pages.video')){
+                return view('pages.video', compact('page'));
+            } else {
+                abort(404);
+            }
+        } catch (\Throwable $exception) {
+            abort(500);
+        }
+    }
 }

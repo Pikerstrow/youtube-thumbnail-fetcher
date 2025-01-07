@@ -35,24 +35,26 @@ class ThumbnailFetchController extends Controller
             'youtube_url' => 'string|max:255|min:30|url'
         ]);
 
-
         try {
             $url_get_param = parse_url($data['youtube_url'])['query'];
             $video_id = explode('=', $url_get_param)[1];
+
+            //Fetch data from YouTube
+            $youtube_data = json_decode($this->fetcher->video_id($video_id)->fetch(), true);
+
+            $videoName = $youtube_data['items'][0]['snippet']['title'] ?? '';
 
             //Check if we already have files. If we have - just return info from db;
             $result = ZipFileInfo::where('youtube_video_id', $video_id)->first();
             if($result) {
                 $thumbnails = json_decode($result->thumbnails_info, true);
                 $response = [
+                    'result_title' => $videoName,
                     'thumbnails' => $thumbnails,
                     'zip_archive_url' => $result->url
                 ];
                 return response()->json($response);
             }
-
-            //Fetch data from YouTube
-            $youtube_data = json_decode($this->fetcher->video_id($video_id)->fetch(), true);
 
             if(isset($youtube_data['items']) && isset($youtube_data['items'][0]) && isset($youtube_data['items'][0]['snippet']) && isset($youtube_data['items'][0]['snippet']['thumbnails'])){
                 $thumbnails = $youtube_data['items'][0]['snippet']['thumbnails'];
@@ -66,6 +68,7 @@ class ThumbnailFetchController extends Controller
                 $zip_file_info = ZipFileInfo::create($zip_archive_info);
 
                 $response = [
+                    'result_title' => $videoName,
                     'thumbnails' => $thumbnails,
                     'zip_archive_url' => $zip_file_info->url
                 ];
