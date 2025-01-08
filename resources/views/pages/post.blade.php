@@ -19,12 +19,12 @@
                         <ol>
                             <li>
                                 <a href="{{ route('start') }}">
-                                    {{ __('views.main_page') }}
+                                    {{ __('views.index.main_page') }}
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('posts') }}">
-                                    {{ __('views.blog') }}
+                                    {{ __('views.index.blog') }}
                                 </a>
                             </li>
                             <li>
@@ -40,7 +40,7 @@
                 {!! $post->getTranslatedAttribute('body') !!}
             </div>
             <section class="post__article__latest">
-                <h3 class="post__article__latest__title">{{ __('views.latests_posts') }}</h3>
+                <h3 class="post__article__latest__title">{{ __('views.index.latests_posts') }}</h3>
                 @foreach($latest_posts as $new_post)
                     <a href="{{ route('post', $new_post->slug) }}" class="post__article__latest__post_card">
                         <article>

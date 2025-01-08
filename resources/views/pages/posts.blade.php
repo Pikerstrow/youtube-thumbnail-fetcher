@@ -12,7 +12,7 @@
     <section class="posts">
         <article>
             <header>
-                <h1 class="posts__h1">{{ __('views.blog')  }}</h1>
+                <h1 class="posts__h1">{{ __('views.index.blog')  }}</h1>
                 @if(!empty($page->body))
                     <div class="posts__note">{!! $page->getTranslatedAttribute('body') !!}</div>
                 @endif
@@ -41,9 +41,9 @@
             @else
                 <div class="posts__container__no_content">
                     <img src="{{ url('images/logo.png') }}" class="posts__container__no_content__img" />
-                    <h3 class="posts__container__no_content__title">{{ __('views.comming_soom') }}</h3>
+                    <h3 class="posts__container__no_content__title">{{ __('views.index.comming_soom') }}</h3>
                     <a href="{{ route('start') }}" class="posts__container__no_content__go_back">
-                        <span>{{ __('views.to_main') }}</span>
+                        <span>{{ __('views.index.to_main') }}</span>
                     </a>
                 </div>
             @endif

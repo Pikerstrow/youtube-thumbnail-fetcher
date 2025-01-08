@@ -44,14 +44,14 @@
 
         <section v-if="Object.keys(thumbnails_data).length" class="app-content-section" >
             <article class="result-container">
-                <h2>{{ __('views.result_title') }}:</h2>
+                <h2>{{ __('views.index.result_title') }}:</h2>
                 <p class="result-resolution">@{{ max_resolution_thumbnail.width }} x @{{ max_resolution_thumbnail.height }}</p>
                 <div class="result-img-container">
                     <img class="result-img" :src="max_resolution_thumbnail.url">
                 </div>
                 <div class="result-description">
                     <p style="text-align: center">
-                        <span class="note_title">{{ __('views.note') }}</span><span class="note_txt">{{ __('views.index.links_note') }}</span>
+                        <span class="note_title">{{ __('views.index.note') }}</span><span class="note_txt">{{ __('views.index.links_note') }}</span>
                     </p>
                     <h3>{{ __('views.index.h3_links') }}</h3>
                     <div class="table-responsive" style="margin-bottom: 30px;">

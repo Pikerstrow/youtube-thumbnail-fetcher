@@ -20,7 +20,7 @@ return [
         'video_downloader' => 'Завантажити відео',
         'blog' => 'Блог',
         'main_page' => 'Головна сторінка',
-        'latests_posts' => 'Останні новини',
+        'latests_posts' => 'Останні записи',
         'comming_soom' => 'Розділ поки не наповнений :)'
     ],
     'video' => [
