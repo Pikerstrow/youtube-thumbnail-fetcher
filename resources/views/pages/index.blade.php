@@ -72,7 +72,7 @@
                             </tr>
                         </table>
                     </div>
-                    <h3>{{ __('views.h3_zip') }}</h3>
+                    <h3>{{ __('views.index.h3_zip') }}</h3>
                     <div class="zip-link-container">
                         <a :href="thumbnails_data.zip_archive_url" class="zip-url">
                             <img style="width: 32px; margin-right: 10px" src="{{ asset('images/archive.png') }}"> <span>thumbnails.zip</span>

@@ -28,6 +28,8 @@
             width: 100%;
             margin-top: 30px;
             margin-bottom: 50px;
+            padding: 16px;
+            background-color: #fff;
 
             p {
                 font-size: 1.1rem;
@@ -43,8 +45,9 @@
             flex-wrap: wrap;
             width: 70% !important;
             margin-top: 50px;
-            justify-content: space-between;
+            justify-content: flex-start;
             margin-bottom: 50px;
+            gap: 14px;
 
             &__title {
                 font-family: 'Roboto Slab', sans-serif;
@@ -64,6 +67,8 @@
                 color: rgb(56, 56, 56);
                 transition-duration: .2s;
                 background: #ffffff;
+                min-width: 170px !important;
+                max-width: 250px !important;
 
                 &__body {
                     padding: 20px 20px;
