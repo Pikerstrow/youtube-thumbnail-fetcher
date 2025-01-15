@@ -11,7 +11,7 @@ class PostsController extends Controller
     public function index()
     {
         try {
-            $posts = Post::with('translations')->paginate(8);
+            $posts = Post::with('translations')->orderBy('id', 'DESC')->paginate(8);
             $page = Page::with('translations')->where('slug', '=','posts')->firstOrFail();
             if(view()->exists('pages.posts')){
                 return view('pages.posts', compact('page', 'posts'));
