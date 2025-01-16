@@ -2,6 +2,7 @@
 return [
     'index' => [
         'h1' => 'Get YouTube Video Thumbnail Image',
+        'h2_additional' => 'Get Video Thumbnails from YouTube in Seconds!',
         'description' => 'The simplest and the most fast way to get (download) thumbnail image for any YouTube video. Just paste URL of the video in the input below and press the button. As a result, you\'ll get links to thumbnail in all available resolutions and link to the zip archive with files.',
         'note' => 'Note: ',
         'note_txt' => 'supported URL format: https://www.youtube.com/watch?v=XvtrI5hOIij7',
@@ -21,7 +22,16 @@ return [
         'blog' => 'Blog',
         'main_page' => 'Main page',
         'latests_posts' => 'Latest news',
-        'comming_soom' => 'Page is empty at the moment :)'
+        'comming_soom' => 'Page is empty at the moment :)',
+        'about_service' => 'About Our Service',
+        'service_description' => "Our service allows you to quickly and easily download the thumbnail (preview image) of any YouTube video in the highest quality. You can obtain the image without the need for registration or additional software. Simply paste the video URL, and we'll provide you with access to all available preview images used on the platform. Perfect for bloggers, marketers, content creators, and anyone looking for easy access to graphics for their projects.",
+        'h4' => 'Features of Our Service:',
+        'ul_li_1' => 'Fast thumbnail image download',
+        'ul_li_2' => 'Supports all YouTube videos',
+        'ul_li_3' => 'High-quality images',
+        'ul_li_4' => 'Images of all possible resolutions',
+        'ul_li_5' => 'Free and no registration required',
+        'conclusion' => 'Make your projects even more eye-catching with our free YouTube video preview images!'
     ],
     'video' => [
         'h1' => 'Download YouTube Video Using URL',

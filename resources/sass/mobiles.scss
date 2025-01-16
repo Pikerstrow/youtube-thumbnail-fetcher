@@ -3,7 +3,7 @@
         font-size: 2.7rem;
     }
 
-    .app-content-section, .faq-section {
+    .app-content-section, .faq-section, .about-section {
         width: 80% !important;
     }
 
@@ -21,7 +21,7 @@
     h2 {
         font-size: 1.8rem;
     }
-    .app-content-section, .faq-section {
+    .app-content-section, .faq-section, .about-section {
         width: 100% !important;
     }
 
@@ -77,6 +77,11 @@
         p {
             text-align: justify !important;
         }
+    }
+
+    .faq-section .wrap_container,
+    .about-section .wrap_container {
+        padding: 16px !important;
     }
 
     .question-container {

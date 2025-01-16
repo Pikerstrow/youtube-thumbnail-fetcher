@@ -14,6 +14,7 @@
 
         <section class="app-content-section">
             <h1>{{ __('views.index.h1') }}</h1>
+            <h2 class="additional">{{ __('views.index.h2_additional') }}</h2>
             <p>{{ __('views.index.description') }}</p>
             <div class="notes-div">
                 <span class="note_title">{{ __('views.index.note') }}</span>
@@ -88,6 +89,24 @@
                     </div>
                 </div>
             </article>
+        </section>
+
+        <section class="about-section">
+            <div class="wrap_container">
+                <h2>{{ __('views.index.about_service') }}</h2>
+                <article class="service_description">
+                    <p>{{ __('views.index.service_description') }}</p>
+                    <h4>{{ __('views.index.h4') }}</h4>
+                    <ul>
+                        <li>{{ __('views.index.ul_li_1') }}</li>
+                        <li>{{ __('views.index.ul_li_2') }}</li>
+                        <li>{{ __('views.index.ul_li_3') }}</li>
+                        <li>{{ __('views.index.ul_li_4') }}</li>
+                        <li>{{ __('views.index.ul_li_5') }}</li>
+                    </ul>
+                    <p><b>{{ __('views.index.conclusion') }}</b></p>
+                </article>
+            </div>
         </section>
 
         {!! $page->getTranslatedAttribute('body') !!}

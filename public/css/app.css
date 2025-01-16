@@ -72,7 +72,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #efefef;
+  background-color: #f8fafc;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -17461,6 +17461,12 @@ h2 {
   letter-spacing: -0.8px;
 }
 
+h2.additional {
+  font-size: 1.4rem;
+  opacity: 0.6;
+  margin-bottom: 1rem;
+}
+
 h3 {
   font-family: "Roboto Slab", sans-serif;
   font-size: 1.4rem;
@@ -17469,6 +17475,16 @@ h3 {
   width: 100%;
   letter-spacing: -0.8px;
   margin-bottom: 15px;
+}
+
+h4 {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: left;
+  width: 100%;
+  letter-spacing: -0.8px;
+  margin-bottom: 12px;
 }
 
 input {
@@ -17794,13 +17810,15 @@ footer.app-footer {
   min-height: 200px;
 }
 
-.app-container .faq-section {
+.app-container .faq-section,
+.app-container .about-section {
   padding: 10px 30px 10px 30px;
   width: 70%;
   margin-bottom: 30px;
 }
 
-.app-container .faq-section .wrap-container {
+.app-container .faq-section .wrap-container,
+.app-container .about-section .wrap-container {
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
@@ -17814,7 +17832,8 @@ footer.app-footer {
   padding: 30px;
 }
 
-.app-container .faq-section .question-container {
+.app-container .faq-section .question-container,
+.app-container .about-section .question-container {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: start;
@@ -17825,7 +17844,8 @@ footer.app-footer {
   margin-top: 20px;
 }
 
-.app-container .faq-section .question-container h4.question {
+.app-container .faq-section .question-container h4.question,
+.app-container .about-section .question-container h4.question {
   font-family: "Roboto Slab", sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
@@ -17836,11 +17856,13 @@ footer.app-footer {
   margin-bottom: 10px;
 }
 
-.app-container .faq-section .question-container p {
+.app-container .faq-section .question-container p,
+.app-container .about-section .question-container p {
   text-align: justify;
 }
 
-.app-container .faq-section .question-container .li-container {
+.app-container .faq-section .question-container .li-container,
+.app-container .about-section .question-container .li-container {
   width: 100%;
   display: -webkit-box;
   display: flex;
@@ -17851,6 +17873,30 @@ footer.app-footer {
           justify-content: flex-start;
   -webkit-box-align: start;
           align-items: flex-start;
+}
+
+.app-container .about-section .wrap_container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  background-color: #ffffff;
+  padding: 30px;
+}
+
+.app-container .about-section .wrap_container article.service_description {
+  margin-top: 12px;
+}
+
+.app-container .about-section .wrap_container article.service_description ul {
+  list-style: disc;
+  padding: 0;
+  margin-left: 12px;
 }
 
 .app-container .app-content-section {
@@ -18341,10 +18387,10 @@ footer.app-footer {
   flex-wrap: wrap;
   width: 70% !important;
   margin-top: 50px;
-  -webkit-box-pack: justify;
-  justify-content: flex-start;
-  gap: 14px;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
   margin-bottom: 50px;
+  gap: 14px;
 }
 
 .post__article__latest__title {
@@ -18508,7 +18554,8 @@ footer.app-footer {
   }
 
   .app-content-section,
-  .faq-section {
+  .faq-section,
+  .about-section {
     width: 80% !important;
   }
 
@@ -18529,7 +18576,8 @@ footer.app-footer {
   }
 
   .app-content-section,
-  .faq-section {
+  .faq-section,
+  .about-section {
     width: 100% !important;
   }
 
@@ -18579,6 +18627,11 @@ footer.app-footer {
 
   .result-description p {
     text-align: justify !important;
+  }
+
+  .faq-section .wrap_container,
+  .about-section .wrap_container {
+    padding: 16px !important;
   }
 
   .question-container {
