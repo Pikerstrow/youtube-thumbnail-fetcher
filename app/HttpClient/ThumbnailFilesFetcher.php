@@ -85,7 +85,6 @@ class ThumbnailFilesFetcher
                 throw new \Exception('Creating archive failed');
             }
         } catch (\Throwable $e) {
-            dd($e);
             throw new \Exception('Download failed');
         }
     }

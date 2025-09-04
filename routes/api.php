@@ -16,5 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'api'], static function () {
     Route::post('fetch-thumbnail', 'ThumbnailFetchController@index');
-    Route::post('fetch-video', 'VideoFetchController@index');
 });

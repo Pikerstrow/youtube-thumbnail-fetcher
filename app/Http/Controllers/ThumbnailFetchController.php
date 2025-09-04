@@ -8,6 +8,7 @@ use App\HttpClient\ThumbnailFilesFetcher;
 use App\ZipFileInfo;
 use Illuminate\Http\Request;
 use App\HttpClient\YoutubeDataFetcher;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
 
 
@@ -36,11 +37,18 @@ class ThumbnailFetchController extends Controller
         ]);
 
         try {
-            $url_get_param = parse_url($data['youtube_url'])['query'];
-            $video_id = explode('=', $url_get_param)[1];
+            $is_shorts_video = false;
+            $youtube_url = $data['youtube_url'];
+            if (Str::contains($youtube_url, 'shorts')) {
+                $is_shorts_video = true;
+                $video_id = Str::after($youtube_url, 'shorts/');
+            } else {
+                $url_get_param = parse_url($data['youtube_url'])['query'];
+                $video_id = explode('=', $url_get_param)[1];
+            }
 
             //Fetch data from YouTube
-            $youtube_data = json_decode($this->fetcher->video_id($video_id)->fetch(), true);
+            $youtube_data = json_decode($this->fetcher->video_id($video_id, $is_shorts_video)->fetch(), true);
 
             $videoName = $youtube_data['items'][0]['snippet']['title'] ?? '';
 
@@ -78,6 +86,7 @@ class ThumbnailFetchController extends Controller
                 'message' => 'Something went wrong or video is not available on YouTube'
             ], Response::HTTP_NO_CONTENT);
         } catch (\Throwable $exception) {
+            dd($exception->getMessage());
             $this->logError($exception);
             return response()->json([
                 'message' => 'Ann error occurred. Please try again later.'
