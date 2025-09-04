@@ -18606,9 +18606,44 @@ footer.app-footer {
 }
 
 @media screen and (max-width: 767px) {
+  .post__h1,
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  .post__header {
+    height: 200px;
+  }
+
+  h2.additional {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .app-container .faq-section .question-container h4.question {
+    font-size: 1rem;
+  }
+
+  .app-container .faq-section .question-container,
+  .app-container .about-section .question-container {
+    margin-top: 10px;
+  }
+
   p {
     text-align: justify !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 10px !important;
+    line-height: 18px;
+  }
+
+  .app-container .app-content-section p {
+    font-size: 16px;
+  }
+
+  .question-container ul li {
+    line-height: 18px;
   }
 
   div.table-adaptive {
@@ -18621,8 +18656,59 @@ footer.app-footer {
     text-align: center !important;
   }
 
+  .notes-div {
+    line-height: 18px;
+  }
+
+  .app-container .app-header {
+    padding: 5px 14px;
+  }
+
+  .app-container .app-header .app-nav .nav-item-container .logo-txt {
+    font-size: 1rem;
+  }
+
+  .posts,
+  .app-container .faq-section .wrap-container,
+  .post__article__latest__post_card__body,
+  .app-container .about-section .wrap-container {
+    padding: 14px !important;
+  }
+
+  .posts__container__post_card__body {
+    padding: 10px 0 0 0 !important;
+  }
+
+  .post__article__latest {
+    margin-top: 20px;
+  }
+
+  .post__article__body_container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .posts__container {
+    margin-top: 0 !important;
+  }
+
+  .app-container .about-section,
+  .app-container .faq-section,
+  .app-container .app-content-section {
+    padding: 14px !important;
+  }
+
+  .app-container .app-content-section {
+    margin-top: 14px !important;
+    padding-top: 24px !important;
+  }
+
   .input-group-section {
     padding: 30px 0px !important;
+  }
+
+  .app-container .app-content-section .input-group-section form .submit-btn {
+    font-size: 1.1rem !important;
   }
 
   .result-description p {
