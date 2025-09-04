@@ -11,7 +11,7 @@
                 <a href="{{ url("/en/" . get_cleaned_uri()) }}" class="a-lng" title="english">
                     <img src="{{ url('images/united_kingdom.png') }}" class="a-img" alt="english">
                 </a>
-                <a href="{{ url("/ua/" . get_cleaned_uri()) }}" class="a-lng" title="українська">
+                <a href="{{ url("/uk/" . get_cleaned_uri()) }}" class="a-lng" title="українська">
                     <img src="{{ url('images/ukrainian.png') }}" class="a-img" alt="українська">
                 </a>
             </div>
@@ -35,15 +35,6 @@
                     <span>{{ __('views.index.thumbnail_picker') }}</span>
                 </a>
             </li>
-{{--            <li>--}}
-{{--                <a href="{{ route('videoDownloader') }}"--}}
-{{--                   class="side-menu-li  <?php echo $page->slug === 'video-downloader' ? 'active' : null ?>">--}}
-{{--                    <div class="i-container">--}}
-{{--                        <i class="fas fa-video fa-lg"></i>--}}
-{{--                    </div>--}}
-{{--                    <span>{{ __('views.index.video_downloader') }}</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
             <li>
                 <a href="{{ route('posts') }}"
                    class="side-menu-li <?php echo $page->slug === 'posts' ? 'active' : null ?>">

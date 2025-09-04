@@ -20,6 +20,10 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
+//For redirecting to default locale only
+Route::get('/', function () {
+    return redirect('/' . app()->getLocale() . '/');
+});
 
 Route::group(['prefix' => Localizer::getLocalizationPrefix(), 'middleware' => ['web']], static function () {
     Route::get('/zip-archives/archive/{archive}', 'ZipArchivesController@index')

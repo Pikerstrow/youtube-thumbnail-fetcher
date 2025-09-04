@@ -82,8 +82,11 @@ return [
 
     'locale' => 'en',
     'default_locale' => 'en',
-    'available_locales' => ['en', 'ru', 'ua'],
-
+    'available_locales' => ['en', 'uk'],
+    'locales_to_country_code' => [
+        'en' => 'gb',
+        'uk' => 'ua',
+    ],
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale

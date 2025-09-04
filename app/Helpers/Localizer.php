@@ -50,6 +50,33 @@ class Localizer
         return $settings['app_locale'];
     }
 
+    /**
+     * @param string $locale
+     * @param bool $forHeader
+     * @return string
+     */
+    public static function getRequestUrlByLocale(string $locale, bool $forHeader = false): string
+    {
+        $segments = request()->segments();
+        $supportedLocales = config('app.available_locales');
+
+        if (!empty($segments) && in_array($segments[0], $supportedLocales)) {
+            $segments[0] = $locale;
+        } else {
+            array_unshift($segments, $locale);
+        }
+
+        $url = '/' . implode('/', $segments);
+
+        // Append query string if present
+        $query = request()->getQueryString();
+        if ($query) {
+            $url .= '?' . $query;
+        }
+
+        return $forHeader ? env('APP_URL') . $url : $url;
+    }
+
 
     /**
      * @return bool|string|null

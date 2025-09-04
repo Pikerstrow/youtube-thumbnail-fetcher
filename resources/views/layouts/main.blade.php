@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+@php use App\Helpers\Localizer; @endphp
+    <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -14,6 +15,12 @@
     <meta property="og:description" content="@yield('meta_description')"/>
     <meta property="og:image" content="{{ asset('images/favicon.png') }}"/>
 
+    <!-- Links -->
+    @php($currentLocale = app()->getLocale())
+    <link rel="canonical" href="{{ Localizer::getRequestUrlByLocale($currentLocale, true) }}"/>
+    @foreach(config('app.locales_to_country_code') as $locale => $countryCode)
+        <link rel="alternate" hreflang="{{ $locale }}" href="{{ Localizer::getRequestUrlByLocale($locale, true) }}"/>
+    @endforeach
 
     <title>@yield('title')</title>
 
@@ -25,9 +32,9 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    @if(env('APP_ENV') !== 'local')
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-82253603-6"></script>
-    @endif
+        @if(env('APP_ENV') !== 'local')
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-82253603-6"></script>
+        @endif
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -41,11 +48,8 @@
     </script>
 
     <!-- Add sense -->
-    <!--<script data-ad-client="ca-pub-6716155684505848" async-->
-    <!--        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6716155684505848"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6716155684505848"
+            crossorigin="anonymous"></script>
 </head>
 <body class="app-container">
 <div id="root_element">

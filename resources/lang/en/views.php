@@ -2,7 +2,7 @@
 return [
     'index' => [
         'h1' => 'Get YouTube Video Thumbnail Image',
-        'h2_additional' => 'Get Video Thumbnails from YouTube in Seconds!',
+        'h2_additional' => 'Download Video Thumbnails from YouTube in Seconds!',
         'description' => 'The simplest and the most fast way to get (download) thumbnail image for any YouTube video. Just paste URL of the video in the input below and press the button. As a result, you\'ll get links to thumbnail in all available resolutions and link to the zip archive with files.',
         'note' => 'Note: ',
         'note_txt' => 'supported URL format: https://www.youtube.com/watch?v=XvtrI5hOIij7',
