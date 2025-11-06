@@ -48,7 +48,7 @@ class ThumbnailFetchController extends Controller
             }
 
             //Fetch data from YouTube
-            $youtube_data = json_decode($this->fetcher->video_id($video_id, $is_shorts_video)->fetch(), true);
+            $youtube_data = json_decode($this->fetcher->video_id($video_id)->fetch(), true);
 
             $videoName = $youtube_data['items'][0]['snippet']['title'] ?? '';
 
@@ -56,10 +56,12 @@ class ThumbnailFetchController extends Controller
             $result = ZipFileInfo::where('youtube_video_id', $video_id)->first();
             if($result) {
                 $thumbnails = json_decode($result->thumbnails_info, true);
+                $thumbnails_table_html = view('pages.partials.thumbnails-table', ['thumbnails' => $thumbnails])->render();
                 $response = [
                     'result_title' => $videoName,
                     'thumbnails' => $thumbnails,
-                    'zip_archive_url' => $result->url
+                    'zip_archive_url' => $result->url,
+                    'thumbnails_table_html' => $thumbnails_table_html
                 ];
                 return response()->json($response);
             }
@@ -74,11 +76,12 @@ class ThumbnailFetchController extends Controller
                 $zip_archive_info['user_ip'] = RequestHelper::getIp();
 
                 $zip_file_info = ZipFileInfo::create($zip_archive_info);
-
+                $thumbnails_table_html = view('pages.partials.thumbnails-table', ['thumbnails' => $thumbnails])->render();
                 $response = [
                     'result_title' => $videoName,
                     'thumbnails' => $thumbnails,
-                    'zip_archive_url' => $zip_file_info->url
+                    'zip_archive_url' => $zip_file_info->url,
+                    'thumbnails_table_html' => $thumbnails_table_html
                 ];
                 return response()->json($response);
             }

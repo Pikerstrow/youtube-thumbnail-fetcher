@@ -32,24 +32,20 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-        @if(env('APP_ENV') !== 'local')
-            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-82253603-6"></script>
-        @endif
-    <script>
-        window.dataLayer = window.dataLayer || [];
+    @if(env('APP_ENV') !== 'local')
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0YPKEY6VSN"></script>
+    @endif
+{{--    <script>--}}
+{{--        window.dataLayer = window.dataLayer || [];--}}
+{{--        function gtag(){dataLayer.push(arguments);}--}}
+{{--        gtag('js', new Date());--}}
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+{{--        gtag('config', 'G-0YPKEY6VSN');--}}
+{{--    </script>--}}
 
-        gtag('js', new Date());
-
-        gtag('config', 'UA-82253603-6');
-    </script>
-
-    <!-- Add sense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6716155684505848"
-            crossorigin="anonymous"></script>
+{{--    <!-- Add sense -->--}}
+{{--    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6716155684505848"--}}
+{{--            crossorigin="anonymous"></script>--}}
 </head>
 <body class="app-container">
 <div id="root_element">
@@ -58,5 +54,9 @@
     @include('shared/footer')
 </div>
 <script src="{{ mix('js/app.js')  }}"></script>
+<script type="text/javascript" src="{{ asset('js/hamburger.js') }}"></script>
+@if(\Illuminate\Support\Facades\Route::currentRouteName() === 'start')
+    <script type="text/javascript" src="{{ asset('js/fetcher.js') }}"></script>
+@endif
 </body>
 </html>

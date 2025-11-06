@@ -17,14 +17,14 @@
             </div>
         </div>
         <div>
-            <div @click="toggleActive" id="hamburger_menu">
-                <span :class="{'active': isActive}"></span>
-                <span :class="{'active': isActive}"></span>
-                <span :class="{'active': isActive}"></span>
+            <div id="hamburger_menu">
+                <span class=""></span>
+                <span class=""></span>
+                <span class=""></span>
             </div>
         </div>
     </nav>
-    <div class="nav-menu-list" :class="{'active': isActive}">
+    <div id="nav-menu-list" class="nav-menu-list">
         <ul class="side-menu">
             <li>
                 <a href="{{ route('start') }}"

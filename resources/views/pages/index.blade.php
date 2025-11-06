@@ -23,74 +23,53 @@
 
             <section class="input-group-section">
                 <article class="input-group">
-                    <form>
-                        <input
-                            placeholder="https://www.youtube.com/watch?v=XvtrI5hOIij7"
-                            v-model="youtube_url"
-                            @focus="error = null"
-                            type="text"
-                            name="youtube_url"
-                        >
+                    <form method="POST">
+                        <input id="youtube_url" type="text" name="youtube_url" placeholder="https://www.youtube.com/watch?v=XvtrI5hOIij7">
                         <div class="err-container">
-                            <span class="error-txt" v-if="error">@{{ error }}</span>
+                            <span class="error-txt"></span>
                         </div>
-                        <button @click="sendUrl()" type="button" class="submit-btn">
-                            <span v-if="!is_data_loading">{{ __('views.index.fetch') }}</span>
-                            <img style="width: 25px; height: 25px" v-else src="{{ asset('images/preloader.gif') }}">
+                        <button id="sendUrl" type="button" class="submit-btn position-relative">
+                            <span class="btn-text">{{ __('views.index.fetch') }}</span>
                         </button>
                     </form>
                 </article>
             </section>
         </section>
 
-        <section v-if="Object.keys(thumbnails_data).length" class="app-content-section" >
+        <section id="fetch-result" class="app-content-section d-none">
             <article class="result-container">
                 <h2>{{ __('views.index.result_title') }}:</h2>
-                <p class="result-resolution">@{{ max_resolution_thumbnail.width }} x @{{ max_resolution_thumbnail.height }}</p>
+                <p id="result-resolution" class="result-resolution"></p>
                 <div class="result-img-container">
-                    <img class="result-img" :src="max_resolution_thumbnail.url">
+                    <img id="result-img" class="result-img" src="#">
                 </div>
                 <div class="result-description">
                     <p style="text-align: center">
-                        <span class="note_title">{{ __('views.index.note') }}</span><span class="note_txt">{{ __('views.index.links_note') }}</span>
+                        <span class="note_title">{{ __('views.index.note') }}</span><span
+                            class="note_txt">{{ __('views.index.links_note') }}</span>
                     </p>
                     <h3>{{ __('views.index.h3_links') }}</h3>
-                    <div class="table-responsive" style="margin-bottom: 30px;">
-                        <table class="links-table">
-                            <thead>
-                            <tr>
-                                <td>{{ __('views.index.resolution') }}</td>
-                                <td>{{ __('views.index.link') }}</td>
-                            </tr>
-                            </thead>
-                            <tr v-for="(thumbnail, index) in thumbnails_data.thumbnails">
-                                <td>
-                                    @{{ thumbnail.width }} x @{{ thumbnail.height }}
-                                </td>
-                                <td style="min-width: 450px;">
-                                    <a :href="thumbnail.url" target="_blank">@{{ thumbnail.url }}</a>
-                                </td>
-                            </tr>
-                        </table>
+                    <div id="thumbnails-table-wrap" class="table-responsive" style="margin-bottom: 30px;">
+                        <!-- AJAX POPULATED -->
                     </div>
                     <h3>{{ __('views.index.h3_zip') }}</h3>
                     <div class="zip-link-container">
-                        <a :href="thumbnails_data.zip_archive_url" class="zip-url">
+                        <a id="zip-archive-url" href="#" class="zip-url">
                             <img style="width: 32px; margin-right: 10px" src="{{ asset('images/archive.png') }}"> <span>thumbnails.zip</span>
                         </a>
                     </div>
                     <p style="text-align: center">
-                        <span class="note_title">{{ __('views.index.note') }}</span><span class="note_txt">{{ __('views.index.archive_note') }}</span>
+                        <span class="note_title">{{ __('views.index.note') }}</span><span
+                            class="note_txt">{{ __('views.index.archive_note') }}</span>
                     </p>
                     <div class="zip-link-container">
-                        <div @click="clearResults()" class="skip-btn">
+                        <button id="clearResults" class="skip-btn">
                             {{ __('views.index.clear') }}
-                        </div>
+                        </button>
                     </div>
                 </div>
             </article>
         </section>
-
         <section class="about-section">
             <div class="wrap_container">
                 <h2>{{ __('views.index.about_service') }}</h2>
